@@ -104,5 +104,5 @@ cd ~/.vim/bundle
 git clone git://github.com/altercation/vim-colors-solarized.git
 
 ln -s $HOME/dotfiles/vimrc $HOME/.vimrc
-
+ln -s $HOME/dotfiles/tmux.conf $HOME/.tmux.conf
 
