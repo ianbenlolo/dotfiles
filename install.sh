@@ -17,7 +17,7 @@
 # ZSH_DISABLE_COMPFIX=true
 #
 
-ZSH_INSTALL_DIR=$HOME/services/zsh
+ZSH_INSTALL_DIR=$HOME/bin/zsh
 
 # switch to tmp folder
 mkdir tmp; cd tmp
