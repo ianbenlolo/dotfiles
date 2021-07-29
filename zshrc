@@ -25,7 +25,8 @@ alias ssh="ssh -X"
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/ianbenlolo/.oh-my-zsh"
+
+export ZSH=~/.oh-my-zsh
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -49,7 +50,7 @@ ZSH_THEME="robbyrussell"
 # DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
+DISABLE_UPDATE_PROMPT="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
@@ -100,7 +101,9 @@ source $ZSH/oh-my-zsh.sh
 
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+if [[ -z "$LANG" ]]; then
+  export LANG='en_US.UTF-8'
+fi
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -116,13 +119,14 @@ source $ZSH/oh-my-zsh.sh
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
+
 #
 export PATH=$(pyenv root)/shims:$PATH 
 
 if command -v pyenv 1>/dev/null 2>&1; then
     eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
 fi
-eval "$(pyenv virtualenv-init -)"
 
 
 #export PYENV_ROOT="$HOME/.pyenv"
@@ -134,19 +138,23 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 
 
 
-
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/ianbenlolo/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/h/ibenlo/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/Users/ianbenlolo/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/ianbenlolo/miniconda3/etc/profile.d/conda.sh"
+    if [ -f "/h/ibenlo/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/h/ibenlo/miniconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/Users/ianbenlolo/miniconda3/bin:$PATH"
+        export PATH="/h/ibenlo/miniconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
+
+#MO3DULEPATH = "/pkgs/environment-modules"
+#
+export PROMPT='%(!.%{%F{yellow}%}.)$USER@%{$fg[white]%}%M ${ret_status} %{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)'
 

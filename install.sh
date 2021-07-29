@@ -83,6 +83,11 @@ cd ..
 # clone repository into local dotfiles
 git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 
+# zsh plugins
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+
+
 # copy template file into home directory
 # cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
 
@@ -102,6 +107,7 @@ curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
 cd ~/.vim/bundle
 git clone git://github.com/altercation/vim-colors-solarized.git
+
 
 ln -s $HOME/dotfiles/vimrc $HOME/.vimrc
 ln -s $HOME/dotfiles/tmux.conf $HOME/.tmux.conf
