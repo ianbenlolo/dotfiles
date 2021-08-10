@@ -59,19 +59,21 @@ export CPPFLAGS="-I$INSTALL_PATH/include" LDFLAGS="-L$INSTALL_PATH/lib"
 # Zsh
 
 # Get zsh
-git clone https://github.com/zsh-users/zsh.git
+# git clone https://github.com/zsh-users/zsh.git
+wget -O zsh.tar.xz https://sourceforge.net/projects/zsh/files/latest/download
+mkdir zsh && unxz zsh.tar.xz && tar -xvf zsh.tar -C zsh --strip-components 1
 
 # Move into root zsh source directory
 cd zsh
 
 # Produce config.h.in, needed to produce config.status from ./configure
-autoheader
+# autoheader
 
 # Produce the configure file from aclocal.m4 and configure.ac
-autoconf
+# autoconf
 
 # Produce Makefile and config.h via config.status
-./configure --prefix=$ZSH_INSTALL_DIR --enable-shared
+./configure --prefix=$ZSH_INSTALL_DIR
 
 make
 make install
