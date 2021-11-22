@@ -11,13 +11,13 @@ function activ(){
 
 alias julia="exec '/Applications/Julia-1.5.app/Contents/Resources/julia/bin/julia'"
 alias juno="jupyter notebook"
-
+alias sq="squeue -u ibenlo -o \"%.18i %.9P %.8j %.2t %.10M %.6D %.8Q %R\""
 # this will autocomplete Host instead of Hostname with ssh/scp bla
 
-export TERM=xterm-256color
+#export TERM=xterm-256color
 
-export LDFLAGS="-L/usr/local/opt/zlib/lib -L/usr/local/opt/bzip2/lib"
-export CPPFLAGS="-I/usr/local/opt/zlib/include -I/usr/local/opt/bzip2/include"
+#export LDFLAGS="-L/usr/local/opt/zlib/lib -L/usr/local/opt/bzip2/lib"
+#export CPPFLAGS="-I/usr/local/opt/zlib/include -I/usr/local/opt/bzip2/include"
 
 alias ssh="ssh -X"
 
@@ -92,7 +92,6 @@ DISABLE_UPDATE_PROMPT="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git
-#        chucknorris
         brew        
         zsh-syntax-highlighting)
 
@@ -121,18 +120,18 @@ fi
 # For a full list of active aliases, run `alias`.
 
 #
-export PATH=$(pyenv root)/shims:$PATH 
+#export PATH=$(pyenv root)/shims:$PATH 
 
-if command -v pyenv 1>/dev/null 2>&1; then
-    eval "$(pyenv init -)"
-    eval "$(pyenv virtualenv-init -)"
-fi
+#if command -v pyenv 1>/dev/null 2>&1; then
+#    eval "$(pyenv init -)"
+#    eval "$(pyenv virtualenv-init -)"
+#fi
 
 
 #export PYENV_ROOT="$HOME/.pyenv"
 #export PATH="$PYENV_ROOT/bin:$PATH"
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
+#export PYENV_ROOT="$HOME/.pyenv"
+#export PATH="$PYENV_ROOT/bin:$PATH"
 
 #source ~/.nomad-autocompletion.sh
 
@@ -140,14 +139,14 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/h/ibenlo/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/ibenlo/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/h/ibenlo/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/h/ibenlo/miniconda3/etc/profile.d/conda.sh"
+    if [ -f "/home/ibenlo/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/ibenlo/miniconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/h/ibenlo/miniconda3/bin:$PATH"
+        export PATH="/home/ibenlo/miniconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
