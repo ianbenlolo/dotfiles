@@ -1,5 +1,6 @@
 execute pathogen#infect()
 call pathogen#helptags()
+Helptags
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -37,6 +38,7 @@ set hlsearch                    " Highlight found searches
 set ignorecase                  " Search case insensitive...
 set smartcase                   " ... but not when search pattern contains upper case characters
 
+syntax enable
 set background=dark
 let g:solarized_termcolors=256
 let g:solarized_bold = 1
@@ -46,7 +48,7 @@ let g:solarized_termtrans=1
 " let g:rehash256 = 1
 colorscheme solarized
 
-
+highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 
 set wrap                " wrap lines
 set encoding=utf-8      " set encoding to UTF-8 (default was "latin1")
@@ -57,5 +59,18 @@ nmap k gk
 
 
 " load plugins
+
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+
+
 
 
